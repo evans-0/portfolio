@@ -37,6 +37,20 @@
     }
     .nav-links a:hover, .nav-links a.active { color: var(--accent); border-bottom-color: var(--accent); }
 
+    /* Hamburger menu */
+    .nav-toggle {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 4px; background: none; border: none;
+    }
+    .nav-toggle span {
+      display: block; width: 22px; height: 2px;
+      background: var(--text); border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
     .hero {
       min-height: 100vh; display: grid; grid-template-columns: 1.1fr 0.9fr;
       align-items: center; padding: 7rem 4rem 4rem; gap: 4rem;
@@ -165,13 +179,105 @@
     .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.65s ease, transform 0.65s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    @media (max-width: 900px) { .about-grid, .projects-grid { grid-template-columns: 1fr; } .cert-card.ibm-group { grid-column: auto; } }
+    /* ===== RESPONSIVE ===== */
+
+    @media (max-width: 900px) {
+      .about-grid, .projects-grid { grid-template-columns: 1fr; }
+      .cert-card.ibm-group { grid-column: auto; }
+    }
+
     @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; } .nav-links { gap: 0.9rem; } .nav-links a { font-size: 0.68rem; }
-      .hero { grid-template-columns: 1fr; padding: 6rem 1.5rem 3rem; text-align: center; }
-      .hero p, .hero-links, .hero-cta { justify-content: center; } .hero p { max-width: 100%; }
-      .hero-visual { display: none; }
-      section { padding: 3.5rem 1.5rem; } footer { padding: 2rem 1.5rem; }
+      /* NAV */
+      nav { padding: 0.85rem 1.2rem; }
+      .nav-toggle { display: flex; }
+      .nav-links {
+        display: none; flex-direction: column; gap: 0;
+        position: absolute; top: 100%; left: 0; right: 0;
+        background: rgba(247,246,242,0.98); backdrop-filter: blur(14px);
+        border-bottom: 1px solid var(--border);
+        padding: 0.5rem 0 1rem;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { width: 100%; }
+      .nav-links a {
+        display: block; padding: 0.75rem 1.5rem;
+        font-size: 0.8rem; letter-spacing: 0.06em;
+        border-bottom: none;
+      }
+      .nav-links a:hover, .nav-links a.active {
+        background: var(--accent-light); color: var(--accent);
+        border-bottom: none;
+      }
+
+      /* HERO */
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 5rem 1.5rem 3rem;
+        text-align: center;
+        gap: 2rem;
+        min-height: unset;
+        padding-top: 6rem;
+      }
+      .hero-text { order: 2; }
+      .hero-visual { order: 1; display: flex; justify-content: center; }
+      .hero p { max-width: 100%; }
+      .hero-links, .hero-cta { justify-content: center; }
+      .hero-status { display: inline-flex; }
+      .avatar-wrap { width: 200px; height: 200px; }
+      .avatar-initials { font-size: 2.8rem; }
+      .avatar-badge { font-size: 0.65rem; padding: 0.35rem 0.65rem; right: -8px; bottom: 10px; }
+
+      /* SECTIONS */
+      section { padding: 3rem 1.2rem; }
+
+      /* ABOUT */
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+
+      /* EDUCATION */
+      .edu-timeline { padding-left: 1.5rem; }
+      .edu-item { padding: 1.2rem 1.3rem; }
+
+      /* PROJECTS */
+      .projects-grid { grid-template-columns: 1fr; }
+
+      /* HOBBIES */
+      .hobbies-grid { grid-template-columns: repeat(2, 1fr); }
+
+      /* ACHIEVEMENTS */
+      .achievements-grid { grid-template-columns: 1fr; }
+
+      /* CERTIFICATES */
+      .certs-grid { grid-template-columns: 1fr; }
+      .cert-card.ibm-group { grid-column: auto; }
+      .ibm-badges-row { gap: 0.7rem; }
+      .ibm-badge-item { width: 80px; }
+      .ibm-badge-img { width: 68px; height: 68px; }
+
+      /* FOOTER */
+      footer { padding: 2rem 1.2rem; }
+    }
+
+    @media (max-width: 480px) {
+      /* NAV */
+      .nav-logo { font-size: 0.95rem; }
+
+      /* HERO */
+      .hero { padding: 5rem 1rem 2.5rem; gap: 1.5rem; }
+      .hero h1 { font-size: 2.2rem; }
+      .avatar-wrap { width: 160px; height: 160px; }
+      .avatar-badge { font-size: 0.6rem; padding: 0.3rem 0.55rem; }
+      .btn { padding: 0.6rem 1.2rem; font-size: 0.8rem; }
+      .social-pill { font-size: 0.7rem; padding: 0.3rem 0.7rem; }
+
+      /* HOBBIES */
+      .hobbies-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+      .hobby-card { padding: 1rem 0.8rem; }
+
+      /* IBM BADGES */
+      .ibm-badges-row { justify-content: center; }
+
+      /* FOOTER */
+      footer { font-size: 0.75rem; }
     }
   </style>
 </head>
@@ -179,7 +285,10 @@
 
   <nav id="navbar">
     <a href="#hero" class="nav-logo">G E Evans</a>
-    <ul class="nav-links">
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
       <li><a href="#about">About</a></li>
       <li><a href="#education">Education</a></li>
       <li><a href="#projects">Projects</a></li>
@@ -233,7 +342,7 @@
         />
         <div class="avatar-badge">📍 Thiruvananthapuram, Kerala</div>
       </div>
-</div>
+    </div>
   </div>
 
   <!-- ABOUT -->
@@ -445,9 +554,9 @@
           <div class="cert-header">
             <div class="cert-badge-wrap"><span class="cert-badge-emoji">🧠</span></div>
             <div class="cert-body">
-            <a href="https://coursera.org/verify/US0NF0U6006C">
-              <div class="cert-title">Behavioral Finance</div>
-            </a>
+              <a href="https://coursera.org/verify/US0NF0U6006C">
+                <div class="cert-title">Behavioral Finance</div>
+              </a>
               <div class="cert-issuer">Duke University · Coursera</div>
             </div>
           </div>
@@ -518,15 +627,32 @@
   </footer>
 
   <script>
+    // Navbar scroll shadow
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 20); });
 
+    // Hamburger toggle
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+    // Close menu when a link is clicked
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navToggle.classList.remove('open');
+        navLinks.classList.remove('open');
+      });
+    });
+
+    // Active nav link on scroll
     const sections = document.querySelectorAll('section[id], div[id="hero"]');
-    const navLinks = document.querySelectorAll('.nav-links a');
+    const navLinkEls = document.querySelectorAll('.nav-links a');
     const secObserver = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
-          navLinks.forEach(a => a.classList.remove('active'));
+          navLinkEls.forEach(a => a.classList.remove('active'));
           const active = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
           if (active) active.classList.add('active');
         }
@@ -534,6 +660,7 @@
     }, { threshold: 0.3 });
     sections.forEach(s => secObserver.observe(s));
 
+    // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
     const revObserver = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revObserver.unobserve(e.target); } });
