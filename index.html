@@ -3,56 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>G E Evans Devakrubakar</title>
+  <title>G E Evans Devakrubakar — Data Analyst</title>
+  <meta property="og:title" content="G E Evans Devakrubakar — Data Analyst" />
+  <meta property="og:description" content="Physicist turned data analyst. M.Sc. Data Analytics & Computational Sciences at Digital University Kerala." />
+  <meta property="og:url" content="https://evans-0.github.io/portfolio/" />
+  <meta property="og:type" content="website" />
+  <meta name="description" content="Personal portfolio of G E Evans Devakrubakar — Data Analytics, Python, SQL, Tableau." />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --bg: #f7f6f2;
-      --surface: #ffffff;
-      --text: #1a1a1a;
-      --muted: #6b6b6b;
-      --accent: #2d6a4f;
-      --accent-light: #e8f4ef;
-      --border: #e5e3dc;
-      --serif: 'DM Serif Display', Georgia, serif;
-      --sans: 'DM Sans', sans-serif;
+      --bg: #f7f6f2; --surface: #ffffff; --text: #1a1a1a; --muted: #6b6b6b;
+      --accent: #2d6a4f; --accent-light: #e8f4ef; --border: #e5e3dc;
+      --serif: 'DM Serif Display', Georgia, serif; --sans: 'DM Sans', sans-serif;
     }
-
     html { scroll-behavior: smooth; }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--sans);
-      font-weight: 400;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+    body { background: var(--bg); color: var(--text); font-family: var(--sans); line-height: 1.6; overflow-x: hidden; }
 
-    /* NAV */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; justify-content: space-between; align-items: center;
-      padding: 1.25rem 4rem;
-      background: rgba(247,246,242,0.9);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border);
-      transition: box-shadow 0.3s;
+      padding: 1.2rem 4rem;
+      background: rgba(247,246,242,0.92); backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border); transition: box-shadow 0.3s;
     }
     nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.06); }
     .nav-logo { font-family: var(--serif); font-size: 1.1rem; color: var(--text); text-decoration: none; }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links { display: flex; gap: 1.8rem; list-style: none; }
     .nav-links a {
-      font-size: 0.8rem; font-weight: 500; text-decoration: none;
-      color: var(--muted); letter-spacing: 0.07em; text-transform: uppercase; transition: color 0.2s;
+      font-size: 0.78rem; font-weight: 500; text-decoration: none;
+      color: var(--muted); letter-spacing: 0.07em; text-transform: uppercase;
+      transition: color 0.2s; padding-bottom: 2px; border-bottom: 2px solid transparent;
     }
-    .nav-links a:hover { color: var(--accent); }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); border-bottom-color: var(--accent); }
 
-    /* HERO */
     .hero {
-      min-height: 100vh;
-      display: grid; grid-template-columns: 1.1fr 0.9fr;
+      min-height: 100vh; display: grid; grid-template-columns: 1.1fr 0.9fr;
       align-items: center; padding: 7rem 4rem 4rem; gap: 4rem;
       max-width: 1200px; margin: 0 auto;
     }
@@ -60,79 +46,47 @@
     .hero-tag {
       display: inline-block; background: var(--accent-light); color: var(--accent);
       font-size: 0.74rem; font-weight: 600; letter-spacing: 0.1em;
-      text-transform: uppercase; padding: 0.35rem 0.9rem;
+      text-transform: uppercase; padding: 0.35rem 0.9rem; border-radius: 2rem; margin-bottom: 1.3rem;
+    }
+    .hero h1 { font-family: var(--serif); font-size: clamp(2.4rem, 4.5vw, 3.6rem); line-height: 1.1; margin-bottom: 0.5rem; }
+    .hero h1 em { font-style: italic; color: var(--accent); }
+    .hero-role { font-size: 0.92rem; font-weight: 500; color: var(--accent); margin-bottom: 1rem; }
+    .hero p { font-size: 0.97rem; color: var(--muted); max-width: 440px; line-height: 1.8; margin-bottom: 0.9rem; }
+    .hero-status {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: #fff8e1; color: #b45309; border: 1px solid #fde68a;
+      font-size: 0.74rem; font-weight: 600; padding: 0.32rem 0.85rem;
       border-radius: 2rem; margin-bottom: 1.4rem;
     }
-    .hero h1 {
-      font-family: var(--serif);
-      font-size: clamp(2.4rem, 4.5vw, 3.6rem);
-      line-height: 1.1; color: var(--text); margin-bottom: 0.5rem;
-    }
-    .hero h1 em { font-style: italic; color: var(--accent); }
-    .hero-role { font-size: 0.95rem; font-weight: 500; color: var(--accent); margin-bottom: 1rem; }
-    .hero p { font-size: 0.98rem; color: var(--muted); max-width: 440px; line-height: 1.8; margin-bottom: 1.6rem; }
-    .hero-links { display: flex; gap: 0.65rem; flex-wrap: wrap; margin-bottom: 2rem; }
+    .hero-status::before { content:''; width:7px; height:7px; border-radius:50%; background:#f59e0b; animation: pulse 1.6s ease infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.3)} }
+    .hero-links { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1.8rem; }
     .social-pill {
       display: inline-flex; align-items: center; gap: 0.4rem;
-      padding: 0.38rem 0.85rem; border-radius: 2rem;
-      font-size: 0.76rem; font-weight: 600; text-decoration: none;
+      padding: 0.36rem 0.85rem; border-radius: 2rem;
+      font-size: 0.75rem; font-weight: 600; text-decoration: none;
       border: 1.5px solid var(--border); color: var(--muted);
       transition: all 0.2s; background: var(--surface);
     }
     .social-pill:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
     .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn {
-      padding: 0.72rem 1.7rem; border-radius: 0.4rem;
-      font-size: 0.86rem; font-weight: 600; text-decoration: none;
-      transition: all 0.2s; letter-spacing: 0.02em; font-family: var(--sans);
-    }
-    .btn-primary { background: var(--accent); color: #fff; border: none; cursor: pointer; }
+    .btn { padding: 0.7rem 1.65rem; border-radius: 0.4rem; font-size: 0.86rem; font-weight: 600; text-decoration: none; transition: all 0.2s; font-family: var(--sans); cursor: pointer; }
+    .btn-primary { background: var(--accent); color: #fff; border: none; }
     .btn-primary:hover { background: #1e4f38; transform: translateY(-2px); box-shadow: 0 6px 18px rgba(45,106,79,0.25); }
     .btn-outline { border: 1.5px solid var(--border); color: var(--text); background: transparent; }
     .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
     .hero-visual { display: flex; justify-content: center; align-items: center; animation: fadeUp 1.1s 0.15s ease both; }
-    .avatar-wrap { position: relative; width: 310px; height: 310px; }
-    .avatar-bg {
-      position: absolute; inset: 0;
-      background: linear-gradient(135deg, var(--accent-light) 0%, #c8e6d4 100%);
-      border-radius: 60% 40% 55% 45% / 45% 55% 45% 55%;
-      animation: morph 8s ease-in-out infinite;
-    }
-    @keyframes morph {
-      0%,100% { border-radius: 60% 40% 55% 45% / 45% 55% 45% 55%; }
-      33%      { border-radius: 40% 60% 45% 55% / 55% 45% 60% 40%; }
-      66%      { border-radius: 55% 45% 60% 40% / 40% 60% 45% 55%; }
-    }
-    .avatar-initials {
-      position: absolute; inset: 0;
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--serif); font-size: 4.2rem; color: var(--accent);
-    }
-    .avatar-badge {
-      position: absolute; bottom: 18px; right: -4px;
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 0.6rem; padding: 0.55rem 1rem;
-      font-size: 0.74rem; font-weight: 600; color: var(--text);
-      box-shadow: 0 4px 16px rgba(0,0,0,0.08); white-space: nowrap;
-    }
+    .avatar-wrap { position: relative; width: 300px; height: 300px; }
+    .avatar-bg { position: absolute; inset: 0; background: linear-gradient(135deg, var(--accent-light) 0%, #c8e6d4 100%); border-radius: 60% 40% 55% 45%/45% 55% 45% 55%; animation: morph 8s ease-in-out infinite; }
+    @keyframes morph { 0%,100%{border-radius:60% 40% 55% 45%/45% 55% 45% 55%} 33%{border-radius:40% 60% 45% 55%/55% 45% 60% 40%} 66%{border-radius:55% 45% 60% 40%/40% 60% 45% 55%} }
+    .avatar-initials { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 4.2rem; color: var(--accent); }
+    .avatar-badge { position: absolute; bottom: 18px; right: -4px; background: var(--surface); border: 1px solid var(--border); border-radius: 0.6rem; padding: 0.5rem 0.9rem; font-size: 0.73rem; font-weight: 600; color: var(--text); box-shadow: 0 4px 16px rgba(0,0,0,0.08); white-space: nowrap; }
 
-    /* SECTION COMMONS */
-    section {
-      max-width: 1100px; margin: 0 auto;
-      padding: 5rem 4rem; border-top: 1px solid var(--border);
-    }
-    .section-label {
-      font-size: 0.71rem; font-weight: 600; letter-spacing: 0.14em;
-      text-transform: uppercase; color: var(--accent); margin-bottom: 0.45rem;
-    }
-    .section-title {
-      font-family: var(--serif);
-      font-size: clamp(1.7rem, 2.8vw, 2.4rem);
-      color: var(--text); margin-bottom: 2.6rem; line-height: 1.2;
-    }
+    section { max-width: 1100px; margin: 0 auto; padding: 5rem 4rem; border-top: 1px solid var(--border); }
+    .section-label { font-size: 0.71rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.45rem; }
+    .section-title { font-family: var(--serif); font-size: clamp(1.7rem, 2.8vw, 2.4rem); color: var(--text); margin-bottom: 2.5rem; line-height: 1.2; }
 
-    /* ABOUT */
     .about-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem; align-items: start; }
     .about-text p { color: var(--muted); font-size: 0.95rem; line-height: 1.85; margin-bottom: 1rem; }
     .contact-info { margin-top: 1.2rem; display: flex; flex-direction: column; gap: 0.45rem; }
@@ -140,119 +94,84 @@
     .contact-row a { color: var(--accent); text-decoration: none; font-weight: 500; }
     .contact-row a:hover { text-decoration: underline; }
     .skills-block { display: flex; flex-direction: column; gap: 1.1rem; }
-    .skill-group-label {
-      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem;
-    }
-    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .skill-tag {
-      background: var(--accent-light); color: var(--accent);
-      font-size: 0.73rem; font-weight: 600;
-      padding: 0.26rem 0.65rem; border-radius: 0.3rem;
-    }
+    .skill-group-label { font-size: 0.69rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.38rem; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.38rem; }
+    .skill-tag { background: var(--accent-light); color: var(--accent); font-size: 0.72rem; font-weight: 600; padding: 0.25rem 0.62rem; border-radius: 0.3rem; }
     .skill-tag.grey { background: #f0eeea; color: var(--muted); }
 
-    /* EDUCATION */
     .edu-timeline { position: relative; padding-left: 2rem; }
-    .edu-timeline::before {
-      content: ''; position: absolute;
-      left: 0; top: 8px; bottom: 8px; width: 1.5px; background: var(--border);
-    }
-    .edu-item {
-      position: relative; margin-bottom: 2rem;
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 0.75rem; padding: 1.5rem 1.8rem;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
+    .edu-timeline::before { content:''; position:absolute; left:0; top:8px; bottom:8px; width:1.5px; background:var(--border); }
+    .edu-item { position: relative; margin-bottom: 2rem; background: var(--surface); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.5rem 1.8rem; transition: transform 0.2s, box-shadow 0.2s; }
     .edu-item:hover { transform: translateX(4px); box-shadow: 0 6px 20px rgba(0,0,0,0.06); }
-    .edu-item::before {
-      content: ''; position: absolute;
-      left: -2.35rem; top: 1.6rem;
-      width: 10px; height: 10px; border-radius: 50%;
-      background: var(--accent); border: 2px solid var(--bg);
-    }
-    .edu-year { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; color: var(--accent); text-transform: uppercase; margin-bottom: 0.3rem; }
+    .edu-item::before { content:''; position:absolute; left:-2.35rem; top:1.6rem; width:10px; height:10px; border-radius:50%; background:var(--accent); border:2px solid var(--bg); }
+    .edu-year { font-size: 0.71rem; font-weight: 700; letter-spacing: 0.08em; color: var(--accent); text-transform: uppercase; margin-bottom: 0.3rem; }
     .edu-degree { font-family: var(--serif); font-size: 1.1rem; color: var(--text); margin-bottom: 0.2rem; }
     .edu-school { font-size: 0.87rem; color: var(--muted); }
-    .edu-cgpa {
-      display: inline-block; margin-top: 0.5rem;
-      background: var(--accent-light); color: var(--accent);
-      font-size: 0.74rem; font-weight: 700;
-      padding: 0.2rem 0.65rem; border-radius: 0.3rem;
-    }
+    .edu-cgpa { display: inline-block; margin-top: 0.5rem; background: var(--accent-light); color: var(--accent); font-size: 0.73rem; font-weight: 700; padding: 0.2rem 0.65rem; border-radius: 0.3rem; }
 
-    /* PROJECTS */
     .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
-    .project-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 0.75rem; padding: 1.6rem;
-      transition: all 0.22s; display: flex; flex-direction: column; gap: 0.75rem;
-    }
+    .project-card { background: var(--surface); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.6rem; transition: all 0.22s; display: flex; flex-direction: column; gap: 0.75rem; }
     .project-card:hover { border-color: var(--accent); box-shadow: 0 8px 28px rgba(45,106,79,0.1); transform: translateY(-3px); }
     .project-icon { font-size: 1.7rem; }
     .project-title { font-family: var(--serif); font-size: 1.05rem; color: var(--text); }
     .project-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.7; }
-    .project-techs { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: auto; padding-top: 0.4rem; }
-    .tech-tag {
-      background: #f0eeea; color: var(--muted);
-      font-size: 0.7rem; font-weight: 600;
-      padding: 0.2rem 0.55rem; border-radius: 0.25rem;
-    }
+    .project-techs { display: flex; flex-wrap: wrap; gap: 0.38rem; margin-top: auto; padding-top: 0.4rem; }
+    .tech-tag { background: #f0eeea; color: var(--muted); font-size: 0.69rem; font-weight: 600; padding: 0.2rem 0.55rem; border-radius: 0.25rem; }
 
-    /* HOBBIES */
-    .hobbies-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(175px, 1fr)); gap: 1.1rem; }
-    .hobby-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 0.75rem; padding: 1.4rem 1.2rem;
-      text-align: center; transition: all 0.2s; cursor: default;
-    }
-    .hobby-card:hover {
-      border-color: var(--accent); background: var(--accent-light);
-      transform: translateY(-4px); box-shadow: 0 8px 24px rgba(45,106,79,0.12);
-    }
+    .hobbies-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 1.1rem; }
+    .hobby-card { background: var(--surface); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.4rem 1.2rem; text-align: center; transition: all 0.2s; cursor: default; }
+    .hobby-card:hover { border-color: var(--accent); background: var(--accent-light); transform: translateY(-4px); box-shadow: 0 8px 24px rgba(45,106,79,0.12); }
     .hobby-icon { font-size: 1.8rem; margin-bottom: 0.55rem; }
     .hobby-name { font-size: 0.87rem; font-weight: 600; color: var(--text); }
-    .hobby-desc { font-size: 0.74rem; color: var(--muted); margin-top: 0.25rem; }
+    .hobby-desc { font-size: 0.73rem; color: var(--muted); margin-top: 0.25rem; }
 
     /* ACHIEVEMENTS */
-    .achievements-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(275px, 1fr)); gap: 1.2rem; }
-    .achievement-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 0.75rem; padding: 1.5rem; transition: all 0.22s;
-    }
-    .achievement-card:hover { border-color: var(--accent); box-shadow: 0 8px 28px rgba(45,106,79,0.1); transform: translateY(-3px); }
+    .achievements-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.2rem; }
+    .achievement-card { background: var(--surface); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.5rem; transition: all 0.22s; }
+    .achievement-card:hover { border-color: #f59e0b; box-shadow: 0 8px 28px rgba(245,158,11,0.12); transform: translateY(-3px); }
     .ach-icon { font-size: 1.5rem; margin-bottom: 0.65rem; }
     .ach-title { font-family: var(--serif); font-size: 1rem; color: var(--text); margin-bottom: 0.25rem; }
-    .ach-meta { font-size: 0.73rem; color: var(--accent); font-weight: 700; margin-bottom: 0.45rem; letter-spacing: 0.03em; }
+    .ach-meta { font-size: 0.72rem; color: #b45309; font-weight: 700; margin-bottom: 0.45rem; }
     .ach-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.65; }
 
-    /* FOOTER */
-    footer {
-      border-top: 1px solid var(--border); text-align: center;
-      padding: 2.5rem 4rem; font-size: 0.82rem; color: var(--muted);
-    }
+    /* CERTIFICATES */
+    .certs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 1.3rem; }
+    .cert-card { background: var(--surface); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.5rem; display: flex; flex-direction: column; gap: 0.9rem; transition: all 0.22s; }
+    .cert-card:hover { border-color: var(--accent); box-shadow: 0 8px 28px rgba(45,106,79,0.1); transform: translateY(-3px); }
+    .cert-header { display: flex; align-items: flex-start; gap: 1rem; }
+    .cert-badge-wrap { width: 68px; height: 68px; border-radius: 0.55rem; overflow: hidden; border: 1px solid var(--border); background: #f9f8f5; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .cert-badge-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .cert-badge-emoji { font-size: 1.9rem; }
+    .cert-body { display: flex; flex-direction: column; gap: 0.2rem; padding-top: 0.1rem; }
+    .cert-title { font-family: var(--serif); font-size: 0.98rem; color: var(--text); line-height: 1.3; }
+    .cert-issuer { font-size: 0.71rem; color: var(--accent); font-weight: 700; letter-spacing: 0.03em; }
+    .cert-desc { font-size: 0.81rem; color: var(--muted); line-height: 1.6; }
+
+    /* IBM Group */
+    .cert-card.ibm-group { grid-column: 1 / -1; }
+    .ibm-group-inner { display: flex; flex-direction: column; gap: 1rem; }
+    .ibm-group-header { display: flex; align-items: center; gap: 1rem; }
+    .ibm-group-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.65; }
+    .ibm-badges-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .ibm-badge-item { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; width: 100px; text-align: center; }
+    .ibm-badge-img { width: 82px; height: 82px; border-radius: 0.5rem; overflow: hidden; border: 1px solid var(--border); }
+    .ibm-badge-img img { width: 100%; height: 100%; object-fit: cover; }
+    .ibm-badge-label { font-size: 0.67rem; font-weight: 600; color: var(--muted); line-height: 1.35; }
+
+    footer { border-top: 1px solid var(--border); text-align: center; padding: 2.5rem 4rem; font-size: 0.82rem; color: var(--muted); }
     footer span { color: var(--accent); }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
     .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.65s ease, transform 0.65s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    @media (max-width: 900px) {
-      .about-grid, .projects-grid { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 900px) { .about-grid, .projects-grid { grid-template-columns: 1fr; } .cert-card.ibm-group { grid-column: auto; } }
     @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { gap: 1rem; }
-      .nav-links a { font-size: 0.72rem; }
+      nav { padding: 1rem 1.5rem; } .nav-links { gap: 0.9rem; } .nav-links a { font-size: 0.68rem; }
       .hero { grid-template-columns: 1fr; padding: 6rem 1.5rem 3rem; text-align: center; }
-      .hero p { max-width: 100%; }
-      .hero-links, .hero-cta { justify-content: center; }
+      .hero p, .hero-links, .hero-cta { justify-content: center; } .hero p { max-width: 100%; }
       .hero-visual { display: none; }
-      section { padding: 3.5rem 1.5rem; }
-      footer { padding: 2rem 1.5rem; }
+      section { padding: 3.5rem 1.5rem; } footer { padding: 2rem 1.5rem; }
     }
   </style>
 </head>
@@ -266,6 +185,7 @@
       <li><a href="#projects">Projects</a></li>
       <li><a href="#hobbies">Hobbies</a></li>
       <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#certificates">Certificates</a></li>
     </ul>
   </nav>
 
@@ -276,6 +196,7 @@
       <h1>G E Evans<br/><em>Devakrubakar</em></h1>
       <div class="hero-role">M.Sc. Data Analytics & Computational Sciences · Digital University Kerala</div>
       <p>Physicist turned data analyst — I transform complex datasets into meaningful insights using Python, SQL, Tableau, and a deep love for numbers.</p>
+      <div class="hero-status">Open to Internships & Data Roles</div>
       <div class="hero-links">
         <a href="https://linkedin.com/in/evansd0" target="_blank" class="social-pill">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
@@ -290,7 +211,7 @@
       </div>
       <div class="hero-cta">
         <a href="#projects" class="btn btn-primary">View My Projects</a>
-        <a href="#achievements" class="btn btn-outline">Achievements</a>
+        <a href="#certificates" class="btn btn-outline">Certificates</a>
       </div>
     </div>
     <div class="hero-visual">
@@ -322,41 +243,28 @@
           <div>
             <div class="skill-group-label">Programming</div>
             <div class="skill-tags">
-              <span class="skill-tag">Python</span>
-              <span class="skill-tag">SQL (MySQL)</span>
-              <span class="skill-tag">R</span>
-              <span class="skill-tag">C</span>
-              <span class="skill-tag">C++</span>
-              <span class="skill-tag">HTML</span>
+              <span class="skill-tag">Python</span><span class="skill-tag">SQL (MySQL)</span>
+              <span class="skill-tag">R</span><span class="skill-tag">C</span><span class="skill-tag">C++</span><span class="skill-tag">HTML</span>
             </div>
           </div>
           <div>
             <div class="skill-group-label">Libraries</div>
             <div class="skill-tags">
-              <span class="skill-tag">Pandas</span>
-              <span class="skill-tag">NumPy</span>
-              <span class="skill-tag">Matplotlib</span>
+              <span class="skill-tag">Pandas</span><span class="skill-tag">NumPy</span><span class="skill-tag">Matplotlib</span>
             </div>
           </div>
           <div>
             <div class="skill-group-label">Tools & Platforms</div>
             <div class="skill-tags">
-              <span class="skill-tag">Tableau</span>
-              <span class="skill-tag">Power BI</span>
-              <span class="skill-tag">BigQuery</span>
-              <span class="skill-tag">IBM Cognos</span>
-              <span class="skill-tag">Apache Airflow</span>
-              <span class="skill-tag">Kafka</span>
-              <span class="skill-tag">LaTeX</span>
-              <span class="skill-tag">MS Office</span>
+              <span class="skill-tag">Tableau</span><span class="skill-tag">Power BI</span><span class="skill-tag">BigQuery</span>
+              <span class="skill-tag">IBM Cognos</span><span class="skill-tag">Apache Airflow</span>
+              <span class="skill-tag">Kafka</span><span class="skill-tag">LaTeX</span><span class="skill-tag">MS Office</span>
             </div>
           </div>
           <div>
             <div class="skill-group-label">Languages</div>
             <div class="skill-tags">
-              <span class="skill-tag grey">Tamil</span>
-              <span class="skill-tag grey">English</span>
-              <span class="skill-tag grey">Hindi</span>
+              <span class="skill-tag grey">Tamil</span><span class="skill-tag grey">English</span><span class="skill-tag grey">Hindi</span>
             </div>
           </div>
         </div>
@@ -394,24 +302,19 @@
         <div class="project-card">
           <div class="project-icon">📈</div>
           <div class="project-title">Indian Stock Market Portfolio Optimization</div>
-          <div class="project-desc">Built a Python-based optimization model to calculate the efficient frontier for a basket of Indian stocks. Implemented Sharpe Ratio maximization logic to identify optimal asset allocation — reducing portfolio risk while maintaining expected returns.</div>
+          <div class="project-desc">Built a Python-based optimization model to calculate the efficient frontier for a basket of Indian stocks. Implemented Sharpe Ratio maximization to identify optimal asset allocation — reducing portfolio risk while maintaining expected returns.</div>
           <div class="project-techs">
-            <span class="tech-tag">Python</span>
-            <span class="tech-tag">Pandas</span>
-            <span class="tech-tag">NumPy</span>
-            <span class="tech-tag">Sharpe Ratio</span>
-            <span class="tech-tag">Efficient Frontier</span>
+            <span class="tech-tag">Python</span><span class="tech-tag">Pandas</span>
+            <span class="tech-tag">NumPy</span><span class="tech-tag">Sharpe Ratio</span><span class="tech-tag">Efficient Frontier</span>
           </div>
         </div>
         <div class="project-card">
           <div class="project-icon">📊</div>
           <div class="project-title">Financial Performance Dashboard</div>
-          <div class="project-desc">Designed an interactive Tableau dashboard to visualize key financial KPIs — Gross Revenue, Profit, Discount, and Profit Margin. Applied advanced data modeling with dynamic filtering for deep-dive regional performance analysis.</div>
+          <div class="project-desc">Designed an interactive Tableau dashboard visualizing key financial KPIs — Gross Revenue, Profit, Discount, and Profit Margin. Applied advanced data modeling with dynamic filtering for deep-dive regional performance analysis.</div>
           <div class="project-techs">
-            <span class="tech-tag">Tableau</span>
-            <span class="tech-tag">Data Modeling</span>
-            <span class="tech-tag">KPI Analysis</span>
-            <span class="tech-tag">Dynamic Filtering</span>
+            <span class="tech-tag">Tableau</span><span class="tech-tag">Data Modeling</span>
+            <span class="tech-tag">KPI Analysis</span><span class="tech-tag">Dynamic Filtering</span>
           </div>
         </div>
       </div>
@@ -424,36 +327,12 @@
       <p class="section-label">Beyond the Data</p>
       <h2 class="section-title">Hobbies & Interests</h2>
       <div class="hobbies-grid">
-        <div class="hobby-card">
-          <div class="hobby-icon">⚛️</div>
-          <div class="hobby-name">Physics</div>
-          <div class="hobby-desc">Exploring the fundamental laws of the universe</div>
-        </div>
-        <div class="hobby-card">
-          <div class="hobby-icon">💻</div>
-          <div class="hobby-name">Coding</div>
-          <div class="hobby-desc">Building data tools & automation scripts</div>
-        </div>
-        <div class="hobby-card">
-          <div class="hobby-icon">📈</div>
-          <div class="hobby-name">Finance</div>
-          <div class="hobby-desc">Markets, portfolios & behavioral finance</div>
-        </div>
-        <div class="hobby-card">
-          <div class="hobby-icon">📚</div>
-          <div class="hobby-name">Reading</div>
-          <div class="hobby-desc">Science, economics & self-growth books</div>
-        </div>
-        <div class="hobby-card">
-          <div class="hobby-icon">🧩</div>
-          <div class="hobby-name">Quizzing</div>
-          <div class="hobby-desc">Competitive quizzes & trivia challenges</div>
-        </div>
-        <div class="hobby-card">
-          <div class="hobby-icon">📊</div>
-          <div class="hobby-name">Data Viz</div>
-          <div class="hobby-desc">Crafting beautiful charts & dashboards</div>
-        </div>
+        <div class="hobby-card"><div class="hobby-icon">⚛️</div><div class="hobby-name">Physics</div><div class="hobby-desc">Exploring the fundamental laws of the universe</div></div>
+        <div class="hobby-card"><div class="hobby-icon">💻</div><div class="hobby-name">Coding</div><div class="hobby-desc">Building data tools & automation scripts</div></div>
+        <div class="hobby-card"><div class="hobby-icon">📈</div><div class="hobby-name">Finance</div><div class="hobby-desc">Markets, portfolios & behavioral finance</div></div>
+        <div class="hobby-card"><div class="hobby-icon">📚</div><div class="hobby-name">Reading</div><div class="hobby-desc">Science, economics & self-growth books</div></div>
+        <div class="hobby-card"><div class="hobby-icon">🧩</div><div class="hobby-name">Quizzing</div><div class="hobby-desc">Competitive quizzes & trivia challenges</div></div>
+        <div class="hobby-card"><div class="hobby-icon">📊</div><div class="hobby-name">Data Viz</div><div class="hobby-desc">Crafting beautiful charts & dashboards</div></div>
       </div>
     </div>
   </section>
@@ -461,73 +340,156 @@
   <!-- ACHIEVEMENTS -->
   <section id="achievements">
     <div class="reveal">
-      <p class="section-label">Milestones</p>
-      <h2 class="section-title">Achievements & Certificates</h2>
+      <p class="section-label">Honours & Recognition</p>
+      <h2 class="section-title">Achievements</h2>
       <div class="achievements-grid">
         <div class="achievement-card">
           <div class="ach-icon">🏆</div>
           <div class="ach-title">Madame Marie Curie Trophy</div>
           <div class="ach-meta">2024 · Intercollegiate Physics Quiz — 1st Place</div>
-          <div class="ach-desc">Won the prestigious Madame Marie Curie Trophy at an intercollegiate physics quiz — one of 3+ quiz victories at the first place level.</div>
+          <div class="ach-desc">Won the prestigious Madame Marie Curie Trophy at an intercollegiate physics quiz — one of 3+ first-place wins across competitive events.</div>
         </div>
         <div class="achievement-card">
           <div class="ach-icon">🥇</div>
           <div class="ach-title">Battle of Brainiez</div>
           <div class="ach-meta">2024 · Intercollegiate Quiz — 1st Place</div>
-          <div class="ach-desc">Secured first place at the Battle of Brainiez intercollegiate quiz competition, demonstrating strong analytical and general knowledge across domains.</div>
+          <div class="ach-desc">Secured first place at Battle of Brainiez, showcasing strong analytical thinking and broad general knowledge across competitive domains.</div>
         </div>
         <div class="achievement-card">
-          <div class="ach-icon">📜</div>
-          <div class="ach-title">Business Intelligence & Data Analyst (BIDA)</div>
-          <div class="ach-meta">Corporate Finance Institute (CFI)</div>
-          <div class="ach-desc">Professional certification covering business intelligence, financial data modeling, and end-to-end data analyst workflows.</div>
-        </div>
-        <div class="achievement-card">
-          <div class="ach-icon">🎓</div>
-          <div class="ach-title">Google Data Analytics Certificate</div>
-          <div class="ach-meta">Google · Coursera</div>
-          <div class="ach-desc">Completed Google's professional certificate spanning the full analytics lifecycle — data cleaning, analysis, visualization, and storytelling.</div>
-        </div>
-        <div class="achievement-card">
-          <div class="ach-icon">🗄️</div>
-          <div class="ach-title">SQL, ETL & BI Fundamentals</div>
-          <div class="ach-meta">IBM · edX</div>
-          <div class="ach-desc">IBM-certified course covering relational databases, ETL pipeline design, and business intelligence foundations.</div>
-        </div>
-        <div class="achievement-card">
-          <div class="ach-icon">🧠</div>
-          <div class="ach-title">Behavioral Finance</div>
-          <div class="ach-meta">Duke University · Coursera</div>
-          <div class="ach-desc">Studied the psychology of financial decision-making, cognitive biases, and market anomalies with Duke University faculty.</div>
+          <div class="ach-icon">🎯</div>
+          <div class="ach-title">3+ Intercollegiate Quiz Victories</div>
+          <div class="ach-meta">Physics Quizzes · Multiple Events</div>
+          <div class="ach-desc">Consistent top performer with multiple first-place finishes in intercollegiate physics and general knowledge quiz competitions.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- CERTIFICATES -->
+  <section id="certificates">
+    <div class="reveal">
+      <p class="section-label">Verified Credentials</p>
+      <h2 class="section-title">Certificates</h2>
+      <div class="certs-grid">
+
+        <div class="cert-card">
+          <div class="cert-header">
+            <div class="cert-badge-wrap">
+              <img src="google-data-analytics-professional-certificate-v2.png" alt="Google Data Analytics Certificate" />
+            </div>
+            <div class="cert-body">
+              <div class="cert-title">Google Data Analytics Certificate</div>
+              <div class="cert-issuer">Google · Coursera</div>
+            </div>
+          </div>
+          <div class="cert-desc">Covers the full analytics lifecycle — data cleaning, analysis, visualization, and storytelling. Hands-on with spreadsheets, SQL, R, and Tableau.</div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-header">
+            <div class="cert-badge-wrap">
+              <img src="bida.png" alt="CFI BIDA Certificate" />
+            </div>
+            <div class="cert-body">
+              <div class="cert-title">Business Intelligence & Data Analyst (BIDA)</div>
+              <div class="cert-issuer">Corporate Finance Institute (CFI)</div>
+            </div>
+          </div>
+          <div class="cert-desc">Professional certification covering business intelligence, financial data modeling, and end-to-end data analyst workflows used in industry.</div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-header">
+            <div class="cert-badge-wrap"><span class="cert-badge-emoji">🧠</span></div>
+            <div class="cert-body">
+              <div class="cert-title">Behavioral Finance</div>
+              <div class="cert-issuer">Duke University · Coursera</div>
+            </div>
+          </div>
+          <div class="cert-desc">Explored the psychology of financial decision-making, cognitive biases, and market anomalies with Duke University faculty.</div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-header">
+            <div class="cert-badge-wrap"><span class="cert-badge-emoji">💰</span></div>
+            <div class="cert-body">
+              <div class="cert-title">Basic Financial Literacy</div>
+              <div class="cert-issuer">ISB · Coursera</div>
+            </div>
+          </div>
+          <div class="cert-desc">Foundations of personal and corporate finance, budgeting, investment principles, and financial decision-making from ISB.</div>
+        </div>
+
+        <!-- IBM Group -->
+        <div class="cert-card ibm-group">
+          <div class="ibm-group-inner">
+            <div class="ibm-group-header">
+              <div class="cert-badge-wrap" style="background:#1c1c1c;">
+                <span style="font-size:1.7rem; color:white; font-weight:800; font-family:monospace;">IBM</span>
+              </div>
+              <div class="cert-body">
+                <div class="cert-title">IBM Data Engineering Series</div>
+                <div class="cert-issuer">IBM Skills Network · edX · 4 Courses</div>
+              </div>
+            </div>
+            <div class="ibm-group-desc">Completed four IBM-certified courses covering the full data engineering stack — from Linux scripting and SQL essentials to ETL pipelines, Apache Airflow, Kafka, and data warehousing & BI analytics.</div>
+            <div class="ibm-badges-row">
+              <div class="ibm-badge-item">
+                <div class="ibm-badge-img"><img src="b0_linux.png" alt="Linux Commands & Shell Scripting" /></div>
+                <div class="ibm-badge-label">Linux Commands & Shell Scripting</div>
+              </div>
+              <div class="ibm-badge-item">
+                <div class="ibm-badge-img"><img src="b1_sql.png" alt="SQL Essentials" /></div>
+                <div class="ibm-badge-label">SQL Essentials</div>
+              </div>
+              <div class="ibm-badge-item">
+                <div class="ibm-badge-img"><img src="b2_dw.png" alt="Data Warehousing & BI Analytics" /></div>
+                <div class="ibm-badge-label">Data Warehousing & BI Analytics</div>
+              </div>
+              <div class="ibm-badge-item">
+                <div class="ibm-badge-img"><img src="b3_etl.png" alt="ETL & Data Pipelines" /></div>
+                <div class="ibm-badge-label">ETL & Data Pipelines with Airflow & Kafka</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <footer>
     <p>Built by <span>G E Evans Devakrubakar</span> · 2025</p>
-    <p style="margin-top:0.4rem; font-size:0.78rem;">
+    <p style="margin-top:0.4rem;font-size:0.78rem;">
       <a href="mailto:geevansd2003@gmail.com" style="color:var(--accent);text-decoration:none;">geevansd2003@gmail.com</a>
       &nbsp;·&nbsp;
       <a href="https://github.com/evans-0" target="_blank" style="color:var(--accent);text-decoration:none;">github.com/evans-0</a>
-      &nbsp;·&nbsp;
-      Hosted on GitHub Pages
+      &nbsp;·&nbsp;Hosted on GitHub Pages
     </p>
   </footer>
 
   <script>
     const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 20);
-    });
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
+    window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 20); });
+
+    const sections = document.querySelectorAll('section[id], div[id="hero"]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const secObserver = new IntersectionObserver((entries) => {
       entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+        if (e.isIntersecting) {
+          navLinks.forEach(a => a.classList.remove('active'));
+          const active = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
       });
-    }, { threshold: 0.1 });
-    reveals.forEach(el => observer.observe(el));
+    }, { threshold: 0.3 });
+    sections.forEach(s => secObserver.observe(s));
+
+    const reveals = document.querySelectorAll('.reveal');
+    const revObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revObserver.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    reveals.forEach(el => revObserver.observe(el));
   </script>
 </body>
 </html>
