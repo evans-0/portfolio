@@ -37,15 +37,13 @@
     }
     .nav-links a:hover, .nav-links a.active { color: var(--accent); border-bottom-color: var(--accent); }
 
-    /* Hamburger menu */
     .nav-toggle {
       display: none; flex-direction: column; gap: 5px;
       cursor: pointer; padding: 4px; background: none; border: none;
     }
     .nav-toggle span {
       display: block; width: 22px; height: 2px;
-      background: var(--text); border-radius: 2px;
-      transition: all 0.3s;
+      background: var(--text); border-radius: 2px; transition: all 0.3s;
     }
     .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .nav-toggle.open span:nth-child(2) { opacity: 0; }
@@ -143,6 +141,13 @@
     .achievements-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.2rem; }
     .achievement-card { background: var(--surface); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.5rem; transition: all 0.22s; }
     .achievement-card:hover { border-color: #f59e0b; box-shadow: 0 8px 28px rgba(245,158,11,0.12); transform: translateY(-3px); }
+    /* Gold card special styling */
+    .achievement-card.gold {
+      border-color: #f59e0b;
+      background: linear-gradient(135deg, #fffbeb 0%, #fef9c3 100%);
+      box-shadow: 0 4px 18px rgba(245,158,11,0.15);
+    }
+    .achievement-card.gold:hover { box-shadow: 0 10px 36px rgba(245,158,11,0.28); transform: translateY(-4px); }
     .ach-icon { font-size: 1.5rem; margin-bottom: 0.65rem; }
     .ach-title { font-family: var(--serif); font-size: 1rem; color: var(--text); margin-bottom: 0.25rem; }
     .ach-meta { font-size: 0.72rem; color: #b45309; font-weight: 700; margin-bottom: 0.45rem; }
@@ -179,45 +184,27 @@
     .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.65s ease, transform 0.65s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* ===== RESPONSIVE ===== */
-
     @media (max-width: 900px) {
       .about-grid, .projects-grid { grid-template-columns: 1fr; }
       .cert-card.ibm-group { grid-column: auto; }
     }
-
     @media (max-width: 768px) {
-      /* NAV */
       nav { padding: 0.85rem 1.2rem; }
       .nav-toggle { display: flex; }
       .nav-links {
         display: none; flex-direction: column; gap: 0;
         position: absolute; top: 100%; left: 0; right: 0;
         background: rgba(247,246,242,0.98); backdrop-filter: blur(14px);
-        border-bottom: 1px solid var(--border);
-        padding: 0.5rem 0 1rem;
+        border-bottom: 1px solid var(--border); padding: 0.5rem 0 1rem;
       }
       .nav-links.open { display: flex; }
       .nav-links li { width: 100%; }
       .nav-links a {
         display: block; padding: 0.75rem 1.5rem;
-        font-size: 0.8rem; letter-spacing: 0.06em;
-        border-bottom: none;
+        font-size: 0.8rem; letter-spacing: 0.06em; border-bottom: none;
       }
-      .nav-links a:hover, .nav-links a.active {
-        background: var(--accent-light); color: var(--accent);
-        border-bottom: none;
-      }
-
-      /* HERO */
-      .hero {
-        grid-template-columns: 1fr;
-        padding: 5rem 1.5rem 3rem;
-        text-align: center;
-        gap: 2rem;
-        min-height: unset;
-        padding-top: 6rem;
-      }
+      .nav-links a:hover, .nav-links a.active { background: var(--accent-light); color: var(--accent); border-bottom: none; }
+      .hero { grid-template-columns: 1fr; padding: 5rem 1.5rem 3rem; text-align: center; gap: 2rem; min-height: unset; padding-top: 6rem; }
       .hero-text { order: 2; }
       .hero-visual { order: 1; display: flex; justify-content: center; }
       .hero p { max-width: 100%; }
@@ -226,57 +213,31 @@
       .avatar-wrap { width: 200px; height: 200px; }
       .avatar-initials { font-size: 2.8rem; }
       .avatar-badge { font-size: 0.65rem; padding: 0.35rem 0.65rem; right: -8px; bottom: 10px; }
-
-      /* SECTIONS */
       section { padding: 3rem 1.2rem; }
-
-      /* ABOUT */
       .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-
-      /* EDUCATION */
       .edu-timeline { padding-left: 1.5rem; }
       .edu-item { padding: 1.2rem 1.3rem; }
-
-      /* PROJECTS */
       .projects-grid { grid-template-columns: 1fr; }
-
-      /* HOBBIES */
       .hobbies-grid { grid-template-columns: repeat(2, 1fr); }
-
-      /* ACHIEVEMENTS */
       .achievements-grid { grid-template-columns: 1fr; }
-
-      /* CERTIFICATES */
       .certs-grid { grid-template-columns: 1fr; }
       .cert-card.ibm-group { grid-column: auto; }
       .ibm-badges-row { gap: 0.7rem; }
       .ibm-badge-item { width: 80px; }
       .ibm-badge-img { width: 68px; height: 68px; }
-
-      /* FOOTER */
       footer { padding: 2rem 1.2rem; }
     }
-
     @media (max-width: 480px) {
-      /* NAV */
       .nav-logo { font-size: 0.95rem; }
-
-      /* HERO */
       .hero { padding: 5rem 1rem 2.5rem; gap: 1.5rem; }
       .hero h1 { font-size: 2.2rem; }
       .avatar-wrap { width: 160px; height: 160px; }
       .avatar-badge { font-size: 0.6rem; padding: 0.3rem 0.55rem; }
       .btn { padding: 0.6rem 1.2rem; font-size: 0.8rem; }
       .social-pill { font-size: 0.7rem; padding: 0.3rem 0.7rem; }
-
-      /* HOBBIES */
       .hobbies-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
       .hobby-card { padding: 1rem 0.8rem; }
-
-      /* IBM BADGES */
       .ibm-badges-row { justify-content: center; }
-
-      /* FOOTER */
       footer { font-size: 0.75rem; }
     }
   </style>
@@ -330,12 +291,8 @@
           src="pic.jpeg"
           alt="G E Evans Devakrubakar"
           style="
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center top;
+            position: absolute; inset: 0; width: 100%; height: 100%;
+            object-fit: cover; object-position: center top;
             border-radius: 60% 40% 55% 45%/45% 55% 45% 55%;
             animation: morph 8s ease-in-out infinite;
           "
@@ -461,62 +418,76 @@
 
   <!-- ACHIEVEMENTS -->
   <section id="achievements">
-  <div class="reveal">
-    <p class="section-label">Honours & Recognition</p>
-    <h2 class="section-title">Achievements</h2>
-    <div class="achievements-grid">
+    <div class="reveal">
+      <p class="section-label">Honours & Recognition</p>
+      <h2 class="section-title">Achievements</h2>
+      <div class="achievements-grid">
 
-      <div class="achievement-card">
-        <div class="ach-icon">🥈</div>
-        <div class="ach-title">
-          <a href="wq_silver.pdf" target="_blank" style="color:inherit;text-decoration:none;">
-            WorldQuant BRAIN — Silver Level
-          </a>
+        <!-- GOLD — added, placed first as highest rank -->
+        <div class="achievement-card gold">
+          <div class="ach-icon">🥇</div>
+          <div class="ach-title">
+            <a href="wq_gold.pdf" target="_blank" style="color:inherit;text-decoration:none;">
+              WorldQuant BRAIN — Gold Level
+            </a>
+          </div>
+          <div class="ach-meta">WorldQuant Challenge® · Certificate of Accomplishment</div>
+          <div class="ach-desc">
+            Reached Gold level in the WorldQuant Challenge® — the highest tier — by consistently building and submitting high-performance quantitative alphas on the BRAIN platform that met WorldQuant's rigorous backtesting and live simulation standards.
+          </div>
         </div>
-        <div class="ach-meta">WorldQuant Challenge® · Certificate of Accomplishment</div>
-        <div class="ach-desc">
-          Reached Silver level in the WorldQuant Challenge® by building and submitting quantitative alphas on the BRAIN platform - mathematical models backtested against historical market data that met WorldQuant's performance standards.
+
+        <div class="achievement-card">
+          <div class="ach-icon">🥈</div>
+          <div class="ach-title">
+            <a href="wq_silver.pdf" target="_blank" style="color:inherit;text-decoration:none;">
+              WorldQuant BRAIN — Silver Level
+            </a>
+          </div>
+          <div class="ach-meta">WorldQuant Challenge® · Certificate of Accomplishment</div>
+          <div class="ach-desc">
+            Reached Silver level in the WorldQuant Challenge® by building and submitting quantitative alphas on the BRAIN platform — mathematical models backtested against historical market data that met WorldQuant's performance standards.
+          </div>
         </div>
-      </div>
 
-      <div class="achievement-card">
-        <div class="ach-icon">🥉</div>
-        <div class="ach-title">
-          <a href="wq_bronze.pdf" target="_blank" style="color:inherit;text-decoration:none;">
-            WorldQuant BRAIN — Bronze Level
-          </a>
+        <div class="achievement-card">
+          <div class="ach-icon">🥉</div>
+          <div class="ach-title">
+            <a href="wq_bronze.pdf" target="_blank" style="color:inherit;text-decoration:none;">
+              WorldQuant BRAIN — Bronze Level
+            </a>
+          </div>
+          <div class="ach-meta">WorldQuant Challenge® · Certificate of Accomplishment</div>
+          <div class="ach-desc">
+            Reached Bronze level in the WorldQuant Challenge® — gained hands-on experience designing alphas on WorldQuant's professional quant research platform.
+          </div>
         </div>
-        <div class="ach-meta">WorldQuant Challenge® · Certificate of Accomplishment</div>
-        <div class="ach-desc">
-        Reached Bronze level in the WorldQuant Challenge® - gained hands-on experience designing alphas on WorldQuant's professional quant research platform.
+
+        <div class="achievement-card">
+          <div class="ach-icon">🏆</div>
+          <div class="ach-title">Madame Marie Curie Trophy</div>
+          <div class="ach-meta">2024 · Intercollegiate Physics Quiz — 1st Place</div>
+          <div class="ach-desc">Won the prestigious Madame Marie Curie Trophy at an intercollegiate physics quiz — one of 3+ first-place wins across competitive events.</div>
         </div>
-      </div>
 
-      <div class="achievement-card">
-        <div class="ach-icon">🏆</div>
-        <div class="ach-title">Madame Marie Curie Trophy</div>
-        <div class="ach-meta">2024 · Intercollegiate Physics Quiz — 1st Place</div>
-        <div class="ach-desc">Won the prestigious Madame Marie Curie Trophy at an intercollegiate physics quiz — one of 3+ first-place wins across competitive events.</div>
-      </div>
+        <div class="achievement-card">
+          <div class="ach-icon">🎯</div>
+          <div class="ach-title">Battle of Brainiez</div>
+          <div class="ach-meta">2024 · Intercollegiate Quiz — 1st Place</div>
+          <div class="ach-desc">Secured first place at Battle of Brainiez, showcasing strong analytical thinking and broad general knowledge across competitive domains.</div>
+        </div>
 
-      <div class="achievement-card">
-        <div class="ach-icon">🥇</div>
-        <div class="ach-title">Battle of Brainiez</div>
-        <div class="ach-meta">2024 · Intercollegiate Quiz — 1st Place</div>
-        <div class="ach-desc">Secured first place at Battle of Brainiez, showcasing strong analytical thinking and broad general knowledge across competitive domains.</div>
-      </div>
-
-      <div class="achievement-card">
-        <div class="ach-icon">🎯</div>
-        <div class="ach-title">3+ Intercollegiate Quiz Victories</div>
-        <div class="ach-meta">Physics Quizzes · Multiple Events</div>
-        <div class="ach-desc">Consistent top performer with multiple first-place finishes in intercollegiate physics and general knowledge quiz competitions.</div>
-      </div>
+        <div class="achievement-card">
+          <div class="ach-icon">⭐</div>
+          <div class="ach-title">3+ Intercollegiate Quiz Victories</div>
+          <div class="ach-meta">Physics Quizzes · Multiple Events</div>
+          <div class="ach-desc">Consistent top performer with multiple first-place finishes in intercollegiate physics and general knowledge quiz competitions.</div>
+        </div>
 
       </div>
     </div>
   </section>
-  
+
   <!-- CERTIFICATES -->
   <section id="certificates">
     <div class="reveal">
@@ -547,7 +518,7 @@
               <div class="cert-issuer">Corporate Finance Institute (CFI)</div>
             </div>
           </div>
-          <div class="cert-desc">Covers the full data analysis workflow in Excel — from advanced data cleaning and Power Query transformation to professional visualization and dashboarding. Hands-on experience with pivot tables, lookups, and statistical modeling.</div>
+          <div class="cert-desc">Covers the full data analysis workflow in Excel — from advanced data cleaning and Power Query transformation to professional visualization and dashboarding.</div>
         </div>
 
         <div class="cert-card">
@@ -657,18 +628,15 @@
   </footer>
 
   <script>
-    // Navbar scroll shadow
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 20); });
 
-    // Hamburger toggle
     const navToggle = document.getElementById('navToggle');
     const navLinks = document.getElementById('navLinks');
     navToggle.addEventListener('click', () => {
       navToggle.classList.toggle('open');
       navLinks.classList.toggle('open');
     });
-    // Close menu when a link is clicked
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         navToggle.classList.remove('open');
@@ -676,7 +644,6 @@
       });
     });
 
-    // Active nav link on scroll
     const sections = document.querySelectorAll('section[id], div[id="hero"]');
     const navLinkEls = document.querySelectorAll('.nav-links a');
     const secObserver = new IntersectionObserver((entries) => {
@@ -690,7 +657,6 @@
     }, { threshold: 0.3 });
     sections.forEach(s => secObserver.observe(s));
 
-    // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
     const revObserver = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revObserver.unobserve(e.target); } });
